@@ -1,0 +1,131 @@
+                                                                       HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>My Portfolio</title>
+</head>
+<body>
+  <header>
+    <h1>Nikhil Pandey</h1>
+    <nav>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#social-media">Social Media</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="mode-toggle">
+      <button id="dark-mode">Dark Mode</button>
+      <button id="light-mode">Light Mode</button>
+    </div>
+  </header>
+  <main>
+    <section id="projects">
+      <h2>Project</h2>
+      <ul>
+        <li><a href="https://github.com/nikhilpandey9838/Project">Project 1</a></li>
+      </ul>
+    </section>
+    <section id="social-media">
+      <h2>Social Media</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/nikhil-pandey-b6a144267/">LinkedIn</a></li>
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: nikhilcaptain33@gmail.com</p>
+      <p>Phone: +1 1212121212</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+                                                                 CSS
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 10px;
+  }
+  main {
+    padding: 20px;
+  }
+  body.dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode a {
+    color: #f0f0f0;
+  }
+  body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  body.light-mode a {
+    color: #333;
+  }
+  
+
+
+                                                                  JS
+
+const currentMode = localStorage.getItem('mode');
+if (currentMode === 'dark') {
+  enableDarkMode();
+} else if (currentMode === 'light') {
+  enableLightMode();
+}
+const darkModeBtn = document.getElementById('dark-mode');
+darkModeBtn.addEventListener('click', enableDarkMode);
+
+const lightModeBtn = document.getElementById('light-mode');
+lightModeBtn.addEventListener('click', enableLightMode);
+
+function enableDarkMode() {
+  document.body.classList.remove('light-mode');
+  document.body.classList.add('dark-mode');
+  localStorage.setItem('mode', 'dark');
+}
+
+function enableLightMode() {
+  document.body.classList.remove('dark-mode');
+  document.body.classList.add('light-mode');
+  localStorage.setItem('mode', 'light');
+}
